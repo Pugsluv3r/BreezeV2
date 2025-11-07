@@ -75,7 +75,6 @@ namespace BreezeV2.Menu
             new ButtonInfo[] { // Safety Mods [6]
                 new ButtonInfo { buttonText = "Return to Main", method =() => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu."},
 
-                new ButtonInfo { buttonText = "Anti Report (notify)", method =() => Safety.AntiReportDisconnect(), toolTip = "Notifys you when someone tries to report you."},
                 new ButtonInfo { buttonText = "Return to Stump [B]", method =() => Safety.ReturnToStump(), toolTip = "Teleports you back to stump when pressing B."},
                 new ButtonInfo { buttonText = "Anti Handlink", method =() => Safety.Antihandlink(), toolTip = "Prevents handlinking by Rejecting handlink requests."},
                 new ButtonInfo { buttonText = "Dominant Monke", method =() => Safety.Dominantmonke(), toolTip = "When handlinked you are always dominant >:3 (cant be flinged)."},
@@ -90,6 +89,7 @@ namespace BreezeV2.Menu
             },
             new ButtonInfo[] { // Overpowered Mods [8]
                 new ButtonInfo { buttonText = "Return to Main", method =() => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu."},
+
                 new ButtonInfo { buttonText = "Fling player [X]", method =() => Overpowered.Fling(), toolTip = "flings players when pressing X (Mustbehandlinked)"},
                 new ButtonInfo { buttonText = "Random Teleport [X]", method =() => Overpowered.RandomTpPlayer(), toolTip = "Teleports players randomly when pressing X (Must be handlinked)"},
                 
