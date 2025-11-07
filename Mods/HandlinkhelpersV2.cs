@@ -9,7 +9,9 @@ namespace BreezeV2.Mods
 {
     internal class HandlinkhelpersV2
     {
-// Not yet :3 keep waiting
+        public static bool Islefthandlinked => VRRig.LocalRig.leftHandLink.grabbedLink;
+        public static bool Isrighthandlinked => VRRig.LocalRig.rightHandLink.grabbedLink;
+        
 
     }
 }

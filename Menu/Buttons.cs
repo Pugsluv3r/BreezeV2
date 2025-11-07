@@ -29,7 +29,7 @@ namespace BreezeV2.Menu
                 new ButtonInfo { buttonText = "Safety Mods", method =() => currentCategory = 6, isTogglable = false, toolTip = "Opens the safety mods tab."},
                 new ButtonInfo { buttonText = "Advantage Mods", method =() => currentCategory = 7, isTogglable = false, toolTip = "Opens the advantage mods tab."},
                 new ButtonInfo { buttonText = "Overpowered Mods", method =() => currentCategory = 8, isTogglable = false, toolTip = "Opens the Overpowered mods tab."},
-                new ButtonInfo { buttonText = "Debug", method =() => currentCategory = 9, isTogglable = false, toolTip = "Hello "},
+                new ButtonInfo { buttonText = "Debug", method =() => currentCategory = 9, isTogglable = false, toolTip = "All mods found here are added for debuging purposes and will not be in any final builds of the menu"},
             },
 
             new ButtonInfo[] { // Settings [1]
