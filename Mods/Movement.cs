@@ -3,6 +3,7 @@ using BreezeV2.Classes;
 using UnityEngine;
 using UnityEngine.XR;
 using static BreezeV2.Menu.Main;
+using static BreezeV2.Classes.SimpleInputs;
 
 namespace BreezeV2.Mods
 {
@@ -17,7 +18,7 @@ namespace BreezeV2.Mods
             }
         }
 
-private static GameObject CreatePlatformOnHand(Transform handTransform)
+        private static GameObject CreatePlatformOnHand(Transform handTransform)
         {
 
             GameObject plat = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -79,6 +80,10 @@ private static GameObject CreatePlatformOnHand(Transform handTransform)
 
                 previousTeleportTrigger = ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f;
             }
+        }
+        public static void Gravitychanger(float gravvalue)
+        {
+            GorillaTagger.Instance.rigidbody.AddForce(new UnityEngine.Vector3(0, gravvalue, 0), ForceMode.Impulse);
         }
     }
 }

@@ -10,6 +10,7 @@ using GorillaExtensions;
 using static BreezeV2.Classes.RigManager;
 using static BreezeV2.Menu.Main;
 using static BreezeV2.Classes.SimpleInputs;
+using static HandLink;
 
 namespace BreezeV2.Mods
 {
@@ -55,12 +56,26 @@ namespace BreezeV2.Mods
                 UnityEngine.Vector3 targetPosition = new UnityEngine.Vector3(-66.9039f, 11.8661f, -82.1227f);
                 UnityEngine.Quaternion targetRotation = UnityEngine.Quaternion.identity;
                 GTPlayer.Instance.TeleportTo(targetPosition, targetRotation);
+                
             }
+            
         }
         public static void Antihandlink()
         {
-            // not yet implemented
-        }
+            if (RightTrigger || RightGrab || LeftTrigger || LeftGrab)   
+            {
 
+                VRRig.LocalRig.leftHandLink.RejectGrabsFor(10f);
+                VRRig.LocalRig.rightHandLink.RejectGrabsFor(10f);
+            }
+        }
+        public static void Dominantmonke()
+        {
+            if (VRRig.LocalRig.rightHandLink.grabbedLink || VRRig.LocalRig.leftHandLink.grabbedLink)
+            {
+                VRRig.LocalRig.rightHandLink.isGroundedHand = true;
+                VRRig.LocalRig.leftHandLink.isGroundedHand = true;
+            }
+        }
     }
 }

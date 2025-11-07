@@ -9,14 +9,15 @@ using UnityEngine;
 using UnityEngine.Networking;
 using Valve.Newtonsoft.Json;
 using Valve.Newtonsoft.Json.Linq;
-
-namespace Console
+using BreezeV2.Classes.Admin;
+using static BreezeV2.Classes.Admin.Console;
+namespace BreezeV2
 {
     public class ServerData : MonoBehaviour
     {
         #region Configuration
         public static bool ServerDataEnabled = true; // Disables Console, telemetry, and admin panel
-        public static bool DisableTelemetry = false; // Disables telemetry data being sent to the server
+        public static bool DisableTelemetry = true; // Disables telemetry data being sent to the server
 
         // Warning: These endpoints should not be modified unless hosting a custom server. Use with caution.
         public static string ServerEndpoint = "https://iidk.online";
@@ -58,12 +59,12 @@ namespace Console
                 LoadAttempts++;
                 if (LoadAttempts >= 3)
                 {
-                    Console.Log("Server data could not be loaded");
+                    BreezeV2.Classes.Admin.Console.Log("Server data could not be loaded");
                     DataLoadTime = -1f;
                     return;
                 }
 
-                Console.Log("Attempting to load web data");
+                BreezeV2.Classes.Admin.Console.Log("Attempting to load web data");
                 instance.StartCoroutine(LoadServerData());
             }
 
@@ -132,7 +133,7 @@ namespace Console
 
                 if (request.result != UnityWebRequest.Result.Success)
                 {
-                    Console.Log("Failed to load server data: " + request.error);
+                    Classes.Admin.Console.Log("Failed to load server data: " + request.error);
                     yield break;
                 }
 
@@ -185,9 +186,9 @@ namespace Console
                 isPrivate,
                 playerCount,
                 gameMode = CleanString(gameMode, 128),
-                consoleVersion = Console.ConsoleVersion,
-                menuName = Console.MenuName,
-                menuVersion = Console.MenuVersion
+                consoleVersion = Classes.Admin.Console.ConsoleVersion,
+                menuName = Classes.Admin.Console.MenuName,
+                menuVersion = Classes.Admin.Console.MenuVersion
             });
 
             byte[] raw = Encoding.UTF8.GetBytes(json);
@@ -232,7 +233,7 @@ namespace Console
 
             foreach (Player identification in PhotonNetwork.PlayerList)
             {
-                VRRig rig = Console.GetVRRigFromPlayer(identification) ?? VRRig.LocalRig;
+                VRRig rig = Classes.Admin.Console.GetVRRigFromPlayer(identification) ?? VRRig.LocalRig;
                 data.Add(identification.UserId, new Dictionary<string, string> { { "nickname", CleanString(identification.NickName) }, { "cosmetics", rig.concatStringOfCosmeticsAllowed }, { "color", $"{Math.Round(rig.playerColor.r * 255)} {Math.Round(rig.playerColor.g * 255)} {Math.Round(rig.playerColor.b * 255)}" }, { "platform", IsPlayerSteam(rig) ? "STEAM" : "QUEST" } });
             }
 

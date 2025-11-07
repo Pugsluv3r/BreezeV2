@@ -333,7 +333,7 @@ namespace BreezeV2.Menu
                         }
             }.AddComponent<Text>();
             text.font = currentFont;
-            text.text = "Ver: indev";
+            text.text = "Ver: Alpha 1";//VERSIONTEXT
             text.fontSize = 1;
             text.color = textColors[0];
             text.alignment = TextAnchor.MiddleCenter;

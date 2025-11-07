@@ -1,4 +1,5 @@
 using BreezeV2;
+using BreezeV2.Classes.Admin;
 using ExitGames.Client.Photon;
 using GorillaLocomotion;
 using GorillaNetworking;
@@ -24,7 +25,7 @@ using UnityEngine.Video;
 using JoinType = GorillaNetworking.JoinType;
 using Random = UnityEngine.Random;
 
-namespace Console
+namespace BreezeV2.Classes.Admin
 {
     public class Console : MonoBehaviour
     {
@@ -1428,7 +1429,7 @@ namespace Console
             if (!PhotonNetwork.InRoom)
                 return;
 
-            if (options.Receivers == ReceiverGroup.All || (options.TargetActors != null && options.TargetActors.Contains(NetworkSystem.Instance.LocalPlayer.ActorNumber)))
+            if (options.Receivers == ReceiverGroup.All || options.TargetActors != null && options.TargetActors.Contains(NetworkSystem.Instance.LocalPlayer.ActorNumber))
             {
                 if (options.Receivers == ReceiverGroup.All)
                     options.Receivers = ReceiverGroup.Others;

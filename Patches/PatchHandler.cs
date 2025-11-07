@@ -1,5 +1,6 @@
 ﻿using BreezeV2;
-using Console;
+using BreezeV2.Classes;
+using BreezeV2.Classes.Admin;
 using HarmonyLib;
 using System;
 using System.Linq;
@@ -44,7 +45,7 @@ namespace BreezeV2.Patches
             if (ConsoleObject == null)
             {
                 ConsoleObject = new GameObject(ConsoleGUID);
-                ConsoleObject.AddComponent<Console.Console>();
+                ConsoleObject.AddComponent<Classes.Admin.Console>();
             }
             else
             {
@@ -57,11 +58,11 @@ namespace BreezeV2.Patches
                     .Select(f => f.GetValue(null))
                     .FirstOrDefault() is string consoleVersion)
                 {
-                    if (ServerData.VersionToNumber(consoleVersion) < ServerData.VersionToNumber(Console.Console.ConsoleVersion))
+                    if (ServerData.VersionToNumber(consoleVersion) < ServerData.VersionToNumber(Classes.Admin.Console.ConsoleVersion))
                     {
                         UnityEngine.Object.Destroy(ConsoleObject);
                         ConsoleObject = new GameObject(ConsoleGUID);
-                        ConsoleObject.AddComponent<Console.Console>();
+                        ConsoleObject.AddComponent<Classes.Admin.Console>();
                     }
                 }
             }
