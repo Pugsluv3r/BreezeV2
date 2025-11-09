@@ -1,5 +1,6 @@
 using BreezeV2;
 using BreezeV2.Classes.Admin;
+using BreezeV2.Notifications;
 using ExitGames.Client.Photon;
 using GorillaLocomotion;
 using GorillaNetworking;
@@ -33,13 +34,13 @@ namespace BreezeV2.Classes.Admin
         public static string MenuName = PluginInfo.Name;
         public static string MenuVersion = PluginInfo.Version;
 
-        public static string ConsoleResourceLocation = "Breeze V2 (preview)";
+        public static string ConsoleResourceLocation = "Breeze V2 (Alpha) ft console";
         public static string ConsoleSuperAdminIcon = $"{ServerDataURL}/icon.png";
         public static string ConsoleAdminIcon = $"{ServerDataURL}/crown.png";
 
         public static bool DisableMenu;
 
-        public static void SendNotification(string text, int sendTime = 1000) { } // Put your notify code here
+        public static void SendNotification(string text, int sendTime = 1000) { NotifiLib.SendNotification( "<color=red>[ADMIN]</color=red>: HAIII ADMINS") } // Put your notify code here
 
         public static void TeleportPlayer(Vector3 position) // Only modify this if you need any special logic
         {

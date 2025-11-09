@@ -30,17 +30,19 @@ namespace BreezeV2
          *   Font.CreateDynamicFontFromOSFont("Comic Sans MS", 24)
          */
 
-        public static ExtGradient backgroundColor = new ExtGradient { colors = ExtGradient.GetSolidGradient(new Color (145f / 255f, 185f / 255f, 237f / 255f))};
+        public static ExtGradient backgroundColor = new ExtGradient { colors = ExtGradient.GetSolidGradient(new Color(145f / 255f, 185f / 255f, 237f / 255f)) };
         public static ExtGradient[] buttonColors = new ExtGradient[]
         {
-            new ExtGradient { colors = ExtGradient.GetSolidGradient(Color.turquoise) }, // Disabled
-            new ExtGradient{colors = ExtGradient.GetSolidGradient(Color.lightBlue)} // Enabled
+                new ExtGradient { colors = ExtGradient.GetSolidGradient(Color.turquoise) }, // Disabled
+                new ExtGradient { colors = ExtGradient.GetSolidGradient(Color.lightBlue) }  // Enabled
         };
-        public static Color[] textColors = new Color[]
-        {
-            Color.white, // Disabled
-            Color.white // Enabled
-        };
+
+        public static bool Darktext = false;
+
+        
+        public static Color[] textColors => Darktext
+            ? new[] { Color.black, Color.black }   // Disabled, Enabled when dark text is enabled
+            : new[] { Color.white, Color.white };  // Disabled, Enabled when dark text is disabled
 
         public static Font currentFont = Font.CreateDynamicFontFromOSFont("Comic Sans MS", 24);
 

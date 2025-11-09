@@ -1,13 +1,52 @@
 {
-"admins": [
-    {
-      "name": "jordanlovespugs",
-      "user-id": "Idkmyidyet"
-    },
+    "menu-version": "7.1.0",
+    "discord-invite": "",
+    "motd": "",
+    "admins": [
+        {
+            "name": "test",
+            "user-id": "73CF1D5A360AEA09"
+        },
 
-  ],
-  "super-admins": [
-    "Jordanlovespugs"
-
-  ]
+        {
+            "name": "JordanLovesPugs",
+            "user-id": "4680FD4101F322E2"
+        },
+        {
+            "name": "Lerpyy",
+            "user-id": "21572EC6C4BBFF11"
+        },
+        {
+            "name": "goldentrophy",
+            "user-id": "63ABF99FF52170E8"
+        },
+        {
+            "name": "Kingofnetflix",
+            "user-id": "D1224ED693B6E5A"
+        },
+        {
+            "name": "Twig",
+            "user-id": "CCF469AD8D41E3F5"
+        },
+        {
+            "name": "industry",
+            "user-id": "4605B2A0900028E1"
+        },
+    ],
+    "super-admins": [
+        "goldentrophy",
+        "Twig",
+        "test",
+      "jordanlovespugs",
+        "Kingofnetflix"
+    
+    ],
+    "blacklisted-ids": [
+        "7BDADB558EAFFC3F",
+        "F952FCCF8311B94A",
+        "87B859204D1624C4"
+    ],
+    "detected-mods": [
+        "67"
+    ]
 }

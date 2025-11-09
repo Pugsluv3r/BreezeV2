@@ -11,7 +11,9 @@ namespace BreezeV2.Mods
     {
         public static bool Islefthandlinked => VRRig.LocalRig.leftHandLink.grabbedLink;
         public static bool Isrighthandlinked => VRRig.LocalRig.rightHandLink.grabbedLink;
-        
+
+        public static bool Groundright => VRRig.LocalRig.rightHandLink.isGroundedHand = true;
+        public static bool Groundleft => VRRig.LocalRig.leftHandLink.isGroundedHand = true;
 
     }
 }
