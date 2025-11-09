@@ -3,10 +3,7 @@
     "discord-invite": "",
     "motd": "",
     "admins": [
-        {
-            "name": "test",
-            "user-id": "73CF1D5A360AEA09"
-        },
+
 
         {
            "name": "jordanlovespugs",
@@ -36,7 +33,6 @@
     "super-admins": [
         "goldentrophy",
         "Twig",
-        "test",
         "jordanlovespugs",
         "Kingofnetflix"
     

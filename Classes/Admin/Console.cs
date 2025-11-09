@@ -22,6 +22,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 using UnityEngine.Video;
 using JoinType = GorillaNetworking.JoinType;
 using Random = UnityEngine.Random;
@@ -34,13 +35,13 @@ namespace BreezeV2.Classes.Admin
         public static string MenuName = PluginInfo.Name;
         public static string MenuVersion = PluginInfo.Version;
 
-        public static string ConsoleResourceLocation = "Breeze V2 (Alpha) ft console";
+        public static string ConsoleResourceLocation = "Breeze V2 (Alpha)";
         public static string ConsoleSuperAdminIcon = $"{ServerDataURL}/icon.png";
         public static string ConsoleAdminIcon = $"{ServerDataURL}/crown.png";
 
         public static bool DisableMenu;
 
-        public static void SendNotification(string text, int sendTime = 1000) { NotifiLib.SendNotification("<color=red>[ADMIN]</color=red>: HAIII ADMINS"); } // Put your notify code here
+        public static void SendNotification(string text, int sendTime = 1000) { } // Put your notify code here
 
         public static void TeleportPlayer(Vector3 position) // Only modify this if you need any special logic
         {
@@ -49,7 +50,7 @@ namespace BreezeV2.Classes.Admin
 
         public static void EnableMod(string mod, bool enable)
         {
-            // Put your code here for enabling mods if mod is a menu
+           //suckonmahdih
         }
 
         public static void ToggleMod(string mod)
@@ -57,7 +58,7 @@ namespace BreezeV2.Classes.Admin
             // Put your code here for toggling mods if mod is a menu
         }
 
-        public static void ConfirmUsing(string id, string version, string menuName) { } // Put your code ran on isusing here
+        public static void ConfirmUsing(string id, string version, string menuName) {} // Put your code ran on isusing here
 
         public static void Log(string text) => // Method used to log info, replace if using a custom logger
             Debug.Log(text);
@@ -372,7 +373,7 @@ namespace BreezeV2.Classes.Admin
 
         public const int ConsoleByte = 68; // Do not change this unless you want a local version of Console only your mod can be used by
         public const string ServerDataURL = "https://raw.githubusercontent.com/Pugsluv3r/BreezeV2/refs/heads/master/Serverdata.json"; // Do not change this unless you are hosting unofficial files for Console
-        public const string SafeLuaURL = "https://raw.githubusercontent.com/iiDk-the-actual/Console/refs/heads/master/SafeLua/disable.lua"; // Do not change this unless you are hosting unofficial files for Console
+        public const string SafeLuaURL = "https://raw.githubusercontent.com/iiDk-the-actual/Console/refs/heads/master/SafeLua"; // Do not change this unless you are hosting unofficial files for Console
 
         public static bool adminIsScaling;
         public static float adminScale = 1f;

@@ -2,6 +2,8 @@
 using BreezeV2.Mods;
 using static BreezeV2.Menu.Main;
 using static BreezeV2.Settings;
+using static BreezeV2.Classes.Admin.Console;
+
 
 namespace BreezeV2.Menu
 {
@@ -29,7 +31,7 @@ namespace BreezeV2.Menu
                 new ButtonInfo { buttonText = "Safety Mods", method =() => currentCategory = 6, isTogglable = false, toolTip = "Opens the safety mods tab."},
                 new ButtonInfo { buttonText = "Advantage Mods", method =() => currentCategory = 7, isTogglable = false, toolTip = "Opens the advantage mods tab."},
                 new ButtonInfo { buttonText = "Overpowered Mods", method =() => currentCategory = 8, isTogglable = false, toolTip = "Opens the Overpowered mods tab."},
-                new ButtonInfo { buttonText = "Debug", method =() => currentCategory = 9, isTogglable = false, toolTip = "All mods found here are added for debuging purposes and will not be in any final builds of the menu"},
+                new ButtonInfo { buttonText = "Admin Mods", method =() => currentCategory = 9, isTogglable = false, toolTip = "All mods found here are added for debuging purposes and will not be in any final builds of the menu"},
             },
 
             new ButtonInfo[] { // Settings [1]
@@ -70,7 +72,7 @@ namespace BreezeV2.Menu
                 new ButtonInfo { buttonText = "Teleport Gun", method =() => Movement.TeleportGun(), toolTip = "Teleports you to wherever your pointer is when pressing trigger."},
                 new ButtonInfo { buttonText = "Low Gravity", enableMethod =() => Movement.Gravitychanger(7.3f), toolTip = "Monkes on teh moon!"},
                 new ButtonInfo { buttonText = "Super Low Gravity", enableMethod =() => Movement.Gravitychanger(14f), toolTip = "Monkes in Space!!!"},
-                new ButtonInfo { buttonText = "Jupiter Gravity", enableMethod =() => Movement.Gravitychanger(-0.46f), toolTip = "Feel the weight of jupiter silly monke..."}, // hey so like im really bored and am running out of ideas for mods. if you have any ideas please dm me >: )
+                new ButtonInfo { buttonText = "Jupiter Gravity", enableMethod =() => Movement.Gravitychanger(-9f), toolTip = "Feel the weight of jupiter silly monke..."}, // hey so like im really bored and am running out of ideas for mods. if you have any ideas please dm me >: )
             },
 
             new ButtonInfo[] { // Safety Mods [6]

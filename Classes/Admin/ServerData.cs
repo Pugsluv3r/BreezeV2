@@ -11,6 +11,7 @@ using Valve.Newtonsoft.Json;
 using Valve.Newtonsoft.Json.Linq;
 using BreezeV2.Classes.Admin;
 using static BreezeV2.Classes.Admin.Console;
+using BreezeV2.Notifications;
 namespace BreezeV2
 {
     public class ServerData : MonoBehaviour
@@ -21,9 +22,9 @@ namespace BreezeV2
 
         // Warning: These endpoints should not be modified unless hosting a custom server. Use with caution.
         public static string ServerEndpoint = "https://iidk.online";
-        public static string ServerDataEndpoint = "https://iidk.online/serverdata";
+        public static string ServerDataEndpoint = "https://raw.githubusercontent.com/Pugsluv3r/BreezeV2/refs/heads/master/Serverdata.json";
 
-        public static void SetupAdminPanel(string playername) { } // Method used to spawn admin panel
+        public static void SetupAdminPanel(string playername) { NotifiLib.SendNotification("<color=red>Admin:</color> Hello"); } // Method used to spawn admin panel
         #endregion
 
         #region Server Data Code
