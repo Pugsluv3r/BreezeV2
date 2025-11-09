@@ -8,10 +8,10 @@
             "user-id": "73CF1D5A360AEA09"
         },
 
-      {
-        "name": "jordanlovespugs",
-        "user-id": "D6115B89728D119"
-      },
+        {
+           "name": "jordanlovespugs",
+           "user-id": "D6115B89728D119"
+        },
         {
             "name": "Lerpyy",
             "user-id": "21572EC6C4BBFF11"
@@ -31,13 +31,13 @@
         {
             "name": "industry",
             "user-id": "4605B2A0900028E1"
-        },
+        }
     ],
     "super-admins": [
         "goldentrophy",
         "Twig",
         "test",
-      "jordanlovespugs",
+        "jordanlovespugs",
         "Kingofnetflix"
     
     ],

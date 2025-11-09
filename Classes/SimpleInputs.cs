@@ -22,7 +22,6 @@ namespace BreezeV2.Classes
         public static bool LeftY => ControllerInputPoller.instance.leftControllerSecondaryButton;
         #endregion
         #region Helpers
-        public static bool AccesableText = false;
         #endregion
     }
 }
