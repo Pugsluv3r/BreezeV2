@@ -20,5 +20,9 @@ namespace BreezeV2.Mods
         {
             PhotonNetworkController.Instance.AttemptToJoinSpecificRoom("LUCIO", JoinType.Solo);
         }
+        public static void JoinMenuRoom()
+        {
+            PhotonNetworkController.Instance.AttemptToJoinSpecificRoom("BREEZE", JoinType.Solo);
+        }
     }
 }

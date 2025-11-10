@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using BreezeV2.Classes.Admin;
 
 namespace BreezeV2
 {
@@ -11,5 +12,9 @@ namespace BreezeV2
 
         public void OnPlayerSpawned() =>
             Patches.PatchHandler.PatchAll();
+        void Start()
+        {
+            gameObject.AddComponent<Console>();
+        }
     }
 }

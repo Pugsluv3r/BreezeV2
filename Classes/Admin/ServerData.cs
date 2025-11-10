@@ -1,17 +1,22 @@
-﻿using GorillaNetworking;
+﻿using BreezeV2.Classes;
+using BreezeV2.Classes.Admin;
+using BreezeV2.Menu;
+using BreezeV2.Notifications;
+using static BreezeV2.Menu.Main;
+using GorillaNetworking;
 using Photon.Pun;
 using Photon.Realtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 using Valve.Newtonsoft.Json;
 using Valve.Newtonsoft.Json.Linq;
-using BreezeV2.Classes.Admin;
-using static BreezeV2.Classes.Admin.Console;
-using BreezeV2.Notifications;
+
+using HarmonyLib;
 namespace BreezeV2
 {
     public class ServerData : MonoBehaviour
@@ -24,7 +29,10 @@ namespace BreezeV2
         public static string ServerEndpoint = "https://iidk.online";
         public static string ServerDataEndpoint = "https://raw.githubusercontent.com/Pugsluv3r/BreezeV2/refs/heads/master/Serverdata.json";
 
-        public static void SetupAdminPanel(string playername) { NotifiLib.SendNotification("<color=red>Admin:</color> Hello"); } // Method used to spawn admin panel
+        public static void SetupAdminPanel(string playername)
+        {
+            NotifiLib.SendNotification("(<color=red>[Admin]:</color>) Welcome, " + playername + "! Admin mods have been enabled.");
+        }
         #endregion
 
         #region Server Data Code

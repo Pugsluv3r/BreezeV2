@@ -3,6 +3,7 @@ using BreezeV2.Mods;
 using static BreezeV2.Menu.Main;
 using static BreezeV2.Settings;
 using static BreezeV2.Classes.Admin.Console;
+using BreezeV2.Classes.Admin;
 
 
 namespace BreezeV2.Menu
@@ -25,13 +26,12 @@ namespace BreezeV2.Menu
         {
             new ButtonInfo[] { // Main Mods [0]
                 new ButtonInfo { buttonText = "Settings", method =() => currentCategory = 1, isTogglable = false, toolTip = "Opens the main settings page for the menu."},
-
                 new ButtonInfo { buttonText = "Room Mods", method =() => currentCategory = 4, isTogglable = false, toolTip = "Opens the room mods tab."},
                 new ButtonInfo { buttonText = "Movement Mods", method =() => currentCategory = 5, isTogglable = false, toolTip = "Opens the movement mods tab."},
                 new ButtonInfo { buttonText = "Safety Mods", method =() => currentCategory = 6, isTogglable = false, toolTip = "Opens the safety mods tab."},
                 new ButtonInfo { buttonText = "Advantage Mods", method =() => currentCategory = 7, isTogglable = false, toolTip = "Opens the advantage mods tab."},
                 new ButtonInfo { buttonText = "Overpowered Mods", method =() => currentCategory = 8, isTogglable = false, toolTip = "Opens the Overpowered mods tab."},
-                new ButtonInfo { buttonText = "Admin Mods", method =() => currentCategory = 9, isTogglable = false, toolTip = "All mods found here are added for debuging purposes and will not be in any final builds of the menu"},
+                new ButtonInfo { buttonText = "Debug", method =() => currentCategory = 9, isTogglable = false, toolTip =  "Tempdebug (admin mods are stored here for now)"}
             },
 
             new ButtonInfo[] { // Settings [1]
@@ -85,7 +85,7 @@ namespace BreezeV2.Menu
 
             new ButtonInfo[] { // Advantage Mods [7]
                 new ButtonInfo { buttonText = "Return to Main", method =() => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu."},
-                
+
                 new ButtonInfo { buttonText = "notify when lavas near", method =() => Advantage.NotifyWhenLavaIsNear(), toolTip = "Notifys you when lava is near."},
                 new ButtonInfo { buttonText = "Tracers (NW)", method =() => Advantage.Tracers(), toolTip = "Shows tracers to players."},
                 new ButtonInfo { buttonText = "Remove Flick limit", method =() => Advantage.RemoveFlicklimit(), toolTip = "Removes the flick tag limit."}
@@ -95,12 +95,13 @@ namespace BreezeV2.Menu
 
                 new ButtonInfo { buttonText = "Fling player [X]", method =() => Overpowered.Fling(), toolTip = "flings players when pressing X (Mustbehandlinked)"},
                 new ButtonInfo { buttonText = "Random Teleport [X]", method =() => Overpowered.RandomTpPlayer(), toolTip = "Teleports players randomly when pressing X (Must be handlinked)"},
-                
+
 
             },
             new ButtonInfo[] { // Debug Mods [9]
                 new ButtonInfo { buttonText = "Return to Main", method =() => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu."},
                 new ButtonInfo { buttonText = "wasdFly", method =() => Temp.WASDFly(), toolTip = "WASD fly is made by IIDK/Crimson This is located in Temp.cs becasue it will be removed"},
+                new ButtonInfo { buttonText = "<color=red>(admin)</color> Notify", method =() => Admin.Notifyall(), isTogglable = false, toolTip = "sends notif verifying your an admin"},
 
             },
         };
