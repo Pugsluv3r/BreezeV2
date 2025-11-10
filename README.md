@@ -19,7 +19,14 @@
   || Windows 10  | MacOS| Linux|
   |-------------| ------------- | ------------- |------------- |
   |Runs?|    ☑️    |   ☑️   |TBD|
-
+<div>
+  <h1 align="center">Troubleshooting</h1>
+    <div>
+      <h3 align="center">Problem: The menu isnt working!
+      <br> Solution: Make sure your bepinex config is configured properly and assure that you have the newest version of the menu in your plugins folder
+      </h3>
+    </div>
+</div>
 
 <div>
   <h1 align="center"></h1>
