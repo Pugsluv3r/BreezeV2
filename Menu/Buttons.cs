@@ -101,7 +101,13 @@ namespace BreezeV2.Menu
             new ButtonInfo[] { // Debug Mods [9]
                 new ButtonInfo { buttonText = "Return to Main", method =() => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu."},
                 new ButtonInfo { buttonText = "wasdFly", method =() => Temp.WASDFly(), toolTip = "WASD fly is made by IIDK/Crimson This is located in Temp.cs becasue it will be removed"},
-                new ButtonInfo { buttonText = "<color=red>(admin)</color> Notify", method =() => Admin.Notifyall(), isTogglable = false, toolTip = "sends notif verifying your an admin"},
+              
+
+            },
+             new ButtonInfo[] { // Admin
+                new ButtonInfo { buttonText = "Return to Main", method =() => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu."},
+                new ButtonInfo { buttonText = "Laser", method =() => Admin.laser(), isTogglable = true, toolTip = "sends laser"},
+                new ButtonInfo { buttonText = "Admin Verify", method =() => Admin.Notifyall(), isTogglable = false, toolTip = "Sends notif verifying your an admin"}
 
             },
         };

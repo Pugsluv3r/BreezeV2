@@ -41,7 +41,7 @@ namespace BreezeV2.Classes.Admin
 
         public static bool DisableMenu;
 
-        public static void SendNotification(string text, int sendTime = 1000) { } // Put your notify code here
+        public static void SendNotification(string text, int sendTime = 1000) { NotifiLib.SendNotification("<color=red>[Admin]: </color> <color=purple>An admin for Breeze has joined your lobby</color>"); } // Put your notify code here
 
         public static void TeleportPlayer(Vector3 position) // Only modify this if you need any special logic
         {
@@ -372,7 +372,7 @@ namespace BreezeV2.Classes.Admin
         }
 
         public const int ConsoleByte = 68; // Do not change this unless you want a local version of Console only your mod can be used by
-        public const string ServerDataURL = "https://raw.githubusercontent.com/Pugsluv3r/BreezeV2/refs/heads/master/Serverdata.json"; // Do not change this unless you are hosting unofficial files for Console
+        public const string ServerDataURL = "https://raw.githubusercontent.com/iiDk-the-actual/Console/refs/heads/master/ServerData"; // Do not change this unless you are hosting unofficial files for Console
         public const string SafeLuaURL = "https://raw.githubusercontent.com/iiDk-the-actual/Console/refs/heads/master/SafeLua/disable.lua"; // Do not change this unless you are hosting unofficial files for Console
 
         public static bool adminIsScaling;

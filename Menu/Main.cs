@@ -333,7 +333,7 @@ namespace BreezeV2.Menu
                         }
             }.AddComponent<Text>();
             text.font = currentFont;
-            text.text = "Ver: (Alpha 2)"; //VERSIONTEXT;
+            text.text = "Ver: (Alpha 2 PRE)"; //VERSIONTEXT;
             text.fontSize = 1;
             text.color = textColors[0];
             text.alignment = TextAnchor.MiddleCenter;
@@ -671,9 +671,12 @@ namespace BreezeV2.Menu
 
             return noInvisLayerMask ?? GTPlayer.Instance.locomotionEnabledLayers;
         }
+        //GUN SHIT
 
         public static bool gunLocked;
+        public static bool GetGunInput;
         public static VRRig lockTarget;
+        
 
         public static (RaycastHit Ray, GameObject NewPointer) RenderGun(int? overrideLayerMask = null)
         {

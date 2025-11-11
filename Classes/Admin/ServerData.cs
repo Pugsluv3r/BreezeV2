@@ -31,7 +31,10 @@ namespace BreezeV2
 
         public static void SetupAdminPanel(string playername)
         {
-            NotifiLib.SendNotification("(<color=red>[Admin]:</color>) Welcome, " + playername + "! Admin mods have been enabled.");
+            List<ButtonInfo> buttons = new List<ButtonInfo>(Buttons.buttons[0]);
+            buttons.Add(new ButtonInfo { buttonText = "Admin", method = () => Main.currentCategory = 10, isTogglable = false, toolTip = "" });
+            Buttons.buttons[0] = buttons.ToArray();
+            NotifiLib.SendNotification("(<color=purple>WELCOME</color>) Welcome, " + playername + "! Admin mods have been enabled.");
         }
         #endregion
 
