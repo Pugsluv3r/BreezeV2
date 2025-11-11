@@ -78,5 +78,12 @@ namespace BreezeV2.Mods
                 VRRig.LocalRig.leftHandLink.isGroundedHand = true;
             }
         }
+        public static void LTdisconnect()
+        {
+            if (LeftTrigger)
+            {
+                NetworkSystem.Instance.ReturnToSinglePlayer();
+            }
+        }
     }
 }

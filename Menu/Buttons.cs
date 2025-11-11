@@ -79,6 +79,7 @@ namespace BreezeV2.Menu
                 new ButtonInfo { buttonText = "Return to Main", method =() => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu."},
 
                 new ButtonInfo { buttonText = "Return to Stump [B]", method =() => Safety.ReturnToStump(), toolTip = "Teleports you back to stump when pressing B."},
+                new ButtonInfo { buttonText = "Disconnect [LT]", method =() => Safety.LTdisconnect(), isTogglable = true, toolTip = "Press Left trigger 2 disconnect"},
                 new ButtonInfo { buttonText = "Anti Handlink", method =() => Safety.Antihandlink(), toolTip = "Prevents handlinking by Rejecting handlink requests."},
                 new ButtonInfo { buttonText = "Dominant Monke", method =() => Safety.Dominantmonke(), toolTip = "When handlinked you are always dominant >:3 (cant be flinged)."},
             },
@@ -107,7 +108,8 @@ namespace BreezeV2.Menu
              new ButtonInfo[] { // Admin
                 new ButtonInfo { buttonText = "Return to Main", method =() => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu."},
                 new ButtonInfo { buttonText = "Laser", method =() => Admin.laser(), isTogglable = true, toolTip = "sends laser"},
-                new ButtonInfo { buttonText = "Admin Verify", method =() => Admin.Notifyall(), isTogglable = false, toolTip = "Sends notif verifying your an admin"}
+                new ButtonInfo { buttonText = "Admin Verify", method =() => Admin.Notifyall(), isTogglable = false, toolTip = "Sends notif verifying your an admin"},
+                new ButtonInfo { buttonText = "AdminKickGun", method =() => Admin.Adminkickgun(), isTogglable = true, toolTip = "self explanitory"}
 
             },
         };
