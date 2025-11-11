@@ -83,7 +83,7 @@ namespace BreezeV2.Mods
         }
         public static void Gravitychanger(float gravvalue)
         {
-            GorillaTagger.Instance.rigidbody.AddForce(new UnityEngine.Vector3(0, gravvalue, 0), ForceMode.Impulse);
+            GorillaTagger.Instance.rigidbody.AddForce(new UnityEngine.Vector3(0, gravvalue, 0), ForceMode.Force);
         }
     }
 }
