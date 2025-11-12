@@ -12,6 +12,7 @@ using System.Net;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using Valve.VR;
@@ -66,7 +67,7 @@ namespace BreezeV2.Mods
                     tracer.material.color = Color.ghostWhite;
                     tracer.SetPosition(0, GorillaTagger.Instance.rightHandTransform.position);
                     tracer.SetPosition(1, vRRig.bodyTransform.position);
-                }
+                } // can someone please fix ts
             }
         }
         public static void RemoveFlicklimit()
@@ -74,6 +75,18 @@ namespace BreezeV2.Mods
             GorillaTagger.Instance.maxTagDistance = 2.5f; // this may be detected by anti-cheat mb /:
         }
 
+        public static void BoxEsp()
+        {
+            foreach (VRRig vRRig in GorillaParent.instance.vrrigs)
+            {
+                GameObject.CreatePrimitive(PrimitiveType.Cube);
+                if (VRRig.LocalRig.isLocal)
+                    continue;
+                {
+                    //not yet implemented
+                }
+            }
+        }
 
 
     }

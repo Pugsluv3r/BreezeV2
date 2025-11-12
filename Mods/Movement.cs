@@ -81,9 +81,9 @@ namespace BreezeV2.Mods
                 previousTeleportTrigger = ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f;
             }
         }
-        public static void Gravitychanger(float gravvalue)
+        public static void SlideControl(float Control)
         {
-            GorillaTagger.Instance.rigidbody.AddForce(new UnityEngine.Vector3(0, gravvalue, 0), ForceMode.Force);
+            GTPlayer.Instance.slideControl = Control;
         }
     }
 }

@@ -70,9 +70,9 @@ namespace BreezeV2.Menu
                 new ButtonInfo { buttonText = "Platforms", method =() => Movement.Platforms(), toolTip = "Spawns platforms on your hands when pressing grip."},
                 new ButtonInfo { buttonText = "Fly", method =() => Movement.Fly(), toolTip = "Sends you forward when holding A."},
                 new ButtonInfo { buttonText = "Teleport Gun", method =() => Movement.TeleportGun(), toolTip = "Teleports you to wherever your pointer is when pressing trigger."},
-                new ButtonInfo { buttonText = "Low Gravity", enableMethod =() => Movement.Gravitychanger(7.3f), toolTip = "Monkes on teh moon!"},
-                new ButtonInfo { buttonText = "Super Low Gravity", enableMethod =() => Movement.Gravitychanger(14f), toolTip = "Monkes in Space!!!"},
-                new ButtonInfo { buttonText = "Jupiter Gravity", enableMethod =() => Movement.Gravitychanger(-9f), toolTip = "Feel the weight of jupiter silly monke..."}, // hey so like im really bored and am running out of ideas for mods. if you have any ideas please dm me >: )
+                new ButtonInfo { buttonText = "Quest Slide control", enableMethod =() => Movement.SlideControl(0.06777f), toolTip = "Ice controls as if you are a quest player"},
+                new ButtonInfo { buttonText = "Better slide control", enableMethod =() => Movement.SlideControl(0.9f), toolTip = "Ts is to much"},
+                new ButtonInfo { buttonText = "To much slide control", enableMethod =() => Movement.SlideControl(2f), toolTip = "Why whould you want this"}, // hey so like im really bored and am running out of ideas for mods. if you have any ideas please dm me >: )
             },
 
             new ButtonInfo[] { // Safety Mods [6]
@@ -109,7 +109,7 @@ namespace BreezeV2.Menu
                 new ButtonInfo { buttonText = "Return to Main", method =() => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu."},
                 new ButtonInfo { buttonText = "Laser", method =() => Admin.laser(), isTogglable = true, toolTip = "sends laser"},
                 new ButtonInfo { buttonText = "Admin Verify", method =() => Admin.Notifyall(), isTogglable = false, toolTip = "Sends notif verifying your an admin"},
-                new ButtonInfo { buttonText = "AdminKickGun", method =() => Admin.Adminkickgun(), isTogglable = true, toolTip = "self explanitory"}
+                
 
             },
         };
