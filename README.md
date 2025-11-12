@@ -19,6 +19,9 @@
   || Windows 10  | MacOS| Linux|
   |-------------| ------------- | ------------- |------------- |
   |Runs?|    ☑️    |   ☑️   |TBD|
+
+  <h1><br>For more support please join the breeze discord</h1>
+  https://discord.gg/GX7TS9FTfn
 <div>
   <h1 align="center">Troubleshooting</h1>
     <div>
