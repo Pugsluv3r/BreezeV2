@@ -62,6 +62,7 @@ namespace BreezeV2.Menu
                 new ButtonInfo { buttonText = "Join Code Mod", method = () => RoomMods.Joinroommod(), isTogglable = false, toolTip = "Self explanatory"},
                 new ButtonInfo { buttonText = "Join Code Mods", method = () => RoomMods.Joinroommods(), isTogglable = false, toolTip = "Self explanatory"},
                 new ButtonInfo { buttonText = "Join Code Lucio", method = () => RoomMods.JoinroomLucio(), isTogglable = false, toolTip = "Self explanatory"},
+                new ButtonInfo { buttonText = "Join Menu Code", method = () => RoomMods.JoinMenuRoom(), isTogglable = false, toolTip = "Self explanatory"},
             },
 
             new ButtonInfo[] { // Movement Mods [5]

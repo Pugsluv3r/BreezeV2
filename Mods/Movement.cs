@@ -89,5 +89,6 @@ namespace BreezeV2.Mods
         {
             GTPlayer.Instance.slideControl = Control;
         }
+      
     }
 }

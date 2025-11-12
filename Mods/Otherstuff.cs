@@ -1,15 +1,19 @@
-﻿using NanoSockets;
+﻿using GorillaLocomotion;
+using NanoSockets;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.XR;
+using BreezeV2.Menu;
+using static BreezeV2.Menu.Main;
 
 namespace BreezeV2.Mods
 {
     internal class Otherstuff
     {
-        
+
         private static List<TextMeshPro> udTMP = new List<TextMeshPro>();
 
         public static void Customboards()
@@ -28,8 +32,27 @@ namespace BreezeV2.Mods
             motdTc.richText = true;
             motdTc.fontSize = 70;
             motdTc.text = "Breeze Alpha 2!";
-            
+
         }
         public static GameObject messageofthedih;
+    
+    public static void Getidgun()
+        {
+            if (ControllerInputPoller.instance.rightGrab)
+            {
+                var GunData = RenderGun();
+                GameObject NewPointer = GunData.NewPointer;
+
+                if (ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f) //not yet implemented)
+                {
+//not yet implemented
+                }
+                else
+                {
+                    //Object.Destroy(NewPointer);
+                }
+
+            }
+        }
     }
 }
