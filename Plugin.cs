@@ -1,5 +1,6 @@
 ﻿using BepInEx;
 using BreezeV2.Classes.Admin;
+using BreezeV2.Mods;
 
 namespace BreezeV2
 {
@@ -17,6 +18,7 @@ namespace BreezeV2
         void Start()
         {
             gameObject.AddComponent<Console>();
+            Otherstuff.Customboards();
         }
     }
 }
