@@ -77,8 +77,12 @@ namespace BreezeV2.Mods
                     GTPlayer.Instance.TeleportTo(NewPointer.transform.position + Vector3.up, GTPlayer.Instance.transform.rotation);
                     GorillaTagger.Instance.rigidbody.linearVelocity = Vector3.zero;
                 }
-
+                else
+                {
+                    Object.Destroy(NewPointer);
+                }
                 previousTeleportTrigger = ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f;
+                
             }
         }
         public static void SlideControl(float Control)
