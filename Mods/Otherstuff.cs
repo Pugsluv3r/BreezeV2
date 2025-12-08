@@ -13,7 +13,7 @@ namespace BreezeV2.Mods
 {
     internal class Otherstuff
     {
-
+        public static GameObject messageofthedih;
         private static List<TextMeshPro> udTMP = new List<TextMeshPro>();
 
         public static void Customboards()
@@ -31,28 +31,8 @@ namespace BreezeV2.Mods
 
             motdTc.richText = true;
             motdTc.fontSize = 70;
-            motdTc.text = "Breeze Alpha 2!";
+            motdTc.text = "Breeze Alpha 1.5 dec 8th patch!";
 
-        }
-        public static GameObject messageofthedih;
-    
-    public static void Getidgun()
-        {
-            if (ControllerInputPoller.instance.rightGrab)
-            {
-                var GunData = RenderGun();
-                GameObject NewPointer = GunData.NewPointer;
-
-                if (ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f) //not yet implemented)
-                {
-//not yet implemented
-                }
-                else
-                {
-                    //Object.Destroy(NewPointer);
-                }
-
-            }
         }
     }
 }

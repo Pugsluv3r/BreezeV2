@@ -14,7 +14,7 @@ namespace BreezeV2.Notifications
         {
             Logger.LogInfo("Plugin NotificationLibrary is loaded!");
         }
-
+        
         private void Init()
         {
             this.MainCamera = GameObject.Find("Main Camera");

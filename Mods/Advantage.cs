@@ -8,6 +8,7 @@ using Oculus.Platform;
 using Photon.Pun;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Text;
 using UnityEngine;
@@ -30,7 +31,7 @@ namespace BreezeV2.Mods
                 try
                 {
                     foreach (VRRig vRRig in GorillaParent.instance.vrrigs)
-                        if (vRRig.isLocal)
+                        if (vRRig.isLocal || ((GorillaTagManager)GorillaGameManager.instance).isCurrentlyTag == false) 
                         {
                             float playerpos = UnityEngine.Vector3.Distance(vRRig.bodyTransform.position, GTPlayer.Instance.transform.position);
                             if (playerpos < range)
@@ -43,52 +44,28 @@ namespace BreezeV2.Mods
                         }
                 }
                 catch { } // no reason
-        }
-      
-        public static void Tracers()
-        {
-            if (!PhotonNetwork.InRoom)
-            {
-                foreach (VRRig vRRig in GorillaParent.instance.vrrigs)
-                {
-                    if (VRRig.LocalRig.isLocal)
-                        continue;
 
-
-                    LineRenderer tracer = Camera.current.gameObject.GetComponent<LineRenderer>();
-                    if (tracer == null)
-                    {
-                        tracer = Camera.current.gameObject.AddComponent<LineRenderer>();
-                    }
-
-                    tracer.startWidth = 0.01f;
-                    tracer.endWidth = 0.01f;
-                    tracer.positionCount = 2;
-                    tracer.material.color = Color.ghostWhite;
-                    tracer.SetPosition(0, GorillaTagger.Instance.rightHandTransform.position);
-                    tracer.SetPosition(1, vRRig.bodyTransform.position);
-                } // can someone please fix ts
-            }
         }
         public static void RemoveFlicklimit()
         {
             GorillaTagger.Instance.maxTagDistance = 2.5f; // this may be detected by anti-cheat mb /:
         }
-
-        public static void BoxEsp()
+        public static void Beacons()
         {
-            foreach (VRRig vRRig in GorillaParent.instance.vrrigs)
+            if (PhotonNetwork.InRoom)
             {
-                GameObject.CreatePrimitive(PrimitiveType.Cube);
-                if (VRRig.LocalRig.isLocal)
-                    continue;
+                foreach (VRRig vRRig in GorillaParent.instance.vrrigs)
                 {
-                    //not yet implemented
+                    if (vRRig.isLocal)
+                    {
+
+                    }
                 }
+
+
             }
+
+
         }
-
-
     }
-}
-
+};

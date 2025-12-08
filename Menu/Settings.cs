@@ -30,6 +30,9 @@ namespace BreezeV2
          *   Font.CreateDynamicFontFromOSFont("Comic Sans MS", 24)
          */
 
+
+
+
         public static ExtGradient backgroundColor = new ExtGradient { colors = ExtGradient.GetSolidGradient(new Color(145f / 255f, 185f / 255f, 237f / 255f)) };
         public static ExtGradient[] buttonColors = new ExtGradient[]
         {
@@ -58,5 +61,6 @@ namespace BreezeV2
         public static int buttonsPerPage = 8;
 
         public static float gradientSpeed = 0; // Speed of colors
+
     }
 }

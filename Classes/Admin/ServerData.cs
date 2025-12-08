@@ -266,6 +266,11 @@ namespace BreezeV2
             request.downloadHandler = new DownloadHandlerBuffer();
             yield return request.SendWebRequest();
         }
+
+        internal static int VersionToNumber(object consoleVersion)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }

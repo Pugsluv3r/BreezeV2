@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.XR;
 using static BreezeV2.Menu.Main;
 using static BreezeV2.Classes.SimpleInputs;
+using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.InputSystem;
+using BepInEx;
 
 namespace BreezeV2.Mods
 {
@@ -65,30 +68,34 @@ namespace BreezeV2.Mods
         public static bool previousTeleportTrigger;
 
 
+        
+        private static LineRenderer Gunline;
+
         public static void TeleportGun()
         {
-            if (ControllerInputPoller.instance.rightGrab)
+            if (ControllerInputPoller.instance.rightGrab || UnityInput.Current.GetKeyDown(KeyCode.E))
             {
                 var GunData = RenderGun();
                 GameObject NewPointer = GunData.NewPointer;
+
 
                 if (ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f && !previousTeleportTrigger)
                 {
                     GTPlayer.Instance.TeleportTo(NewPointer.transform.position + Vector3.up, GTPlayer.Instance.transform.rotation);
                     GorillaTagger.Instance.rigidbody.linearVelocity = Vector3.zero;
                 }
-                else
-                {
-                    Object.Destroy(NewPointer);
-                }
+
                 previousTeleportTrigger = ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f;
-                
-            }
+            }    
         }
         public static void SlideControl(float Control)
         {
             GTPlayer.Instance.slideControl = Control;
         }
-      
+        public static void Noslip()
+        {
+            
+        }
+        
     }
 }

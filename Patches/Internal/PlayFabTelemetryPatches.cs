@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
-namespace BreezeV2.Patches.Internal
+namespace StupidTemplate.Patches.Internal
 {
     public class PlayFabTelemetryPatches
     {

@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace BreezeV2.Patches.Internal
+namespace StupidTemplate.Patches.Internal
 {
     [HarmonyPatch(typeof(VRRig), "OnDisable")]
     public class RigPatch
