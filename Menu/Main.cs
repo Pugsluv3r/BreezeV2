@@ -333,8 +333,8 @@ namespace BreezeV2.Menu
                         }
             }.AddComponent<Text>();
             text.font = currentFont;
-            text.text = "Ver: Alpha 1.5 Dec 8th"; //VERSIONTEXT;
-            text.fontSize = 1;
+            text.text = "Ver: Alpha 2ManyCodes"; //VERSIONTEXT;
+            text.fontSize = 3;
             text.color = textColors[0];
             text.alignment = TextAnchor.MiddleCenter;
             text.fontStyle = FontStyle.Bold;

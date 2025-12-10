@@ -58,9 +58,27 @@ namespace BreezeV2.Menu
 
             new ButtonInfo[] { // Room Mods [4]
                 new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
-
+            #region <----Codes----->
                 new ButtonInfo { buttonText = "Disconnect", method = () => NetworkSystem.Instance.ReturnToSinglePlayer(), isTogglable = false, toolTip = "Disconnects you from the room." },
-                new ButtonInfo { buttonText = "Join Code Mod", method = () => RoomMods.Joinroom(), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code Mod", method = () => RoomMods.Joinroom("MOD"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code Mods", method = () => RoomMods.Joinroom("MODS"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code Lucio", method = () => RoomMods.Joinroom("LUCIO"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code Furry", method = () => RoomMods.Joinroom("FURRY"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code Gay", method = () => RoomMods.Joinroom("GAY"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code Pugs", method = () => RoomMods.Joinroom("PUGS"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code Menu Room", method = () => RoomMods.Joinroom("breezeV2"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code Cat", method = () => RoomMods.Joinroom("CAT"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code Kitty", method = () => RoomMods.Joinroom("KITTY"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code IIDK", method = () => RoomMods.Joinroom("IIDK"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code Twig", method = () => RoomMods.Joinroom("TWIG"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code Twigcore", method = () => RoomMods.Joinroom("TWIGCORE"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code Sren17", method = () => RoomMods.Joinroom("SREN17"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code Sren18", method = () => RoomMods.Joinroom("SREN18"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code PBBV", method = () => RoomMods.Joinroom("PBBV"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code J3VU", method = () => RoomMods.Joinroom("J3VU"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code RUN", method = () => RoomMods.Joinroom("RUN"), isTogglable = false, toolTip = "Self explanatory" },
+
+#endregion  
             },
 
             new ButtonInfo[] { // Movement Mods [5]

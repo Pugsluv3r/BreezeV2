@@ -8,7 +8,7 @@ namespace BreezeV2.Mods
 {
     internal class RoomMods
     { 
-        public static void Joinroommod(string roomName)
+        public static void Joinroom(string roomName)
         {
             PhotonNetworkController.Instance.AttemptToJoinSpecificRoom(roomName, JoinType.Solo);
         }

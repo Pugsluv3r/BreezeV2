@@ -31,7 +31,7 @@ namespace BreezeV2.Mods
 
             motdTc.richText = true;
             motdTc.fontSize = 70;
-            motdTc.text = "Breeze Alpha 1.5 dec 8th patch!";
+            motdTc.text = "Breeze Alpha 2ManyCodes!";
 
         }
     }
