@@ -65,7 +65,7 @@ namespace BreezeV2.Classes.Admin
         #endregion
 
         #region Events
-        public const string ConsoleVersion = "2.6.0";
+        public const string ConsoleVersion = "999.999.999";
         public static Console instance;
 
         public void Awake()
@@ -96,7 +96,7 @@ namespace BreezeV2.Classes.Admin
     ▐███▌▐█▌.▐▌██▐█▌▐█▄▪▐█▐█▌.▐▌▐█▌▐▌▐█▄▄▌
     ·▀▀▀  ▀█▄▀▪▀▀ █▪ ▀▀▀▀  ▀█▄▀▪.▀▀▀  ▀▀▀       
            Console Portable {ConsoleVersion}
-     Developed by goldentrophy & Twigcore
+     Fuck iidk!
 ");
 
             (GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset).supportsCameraOpaqueTexture = true;
