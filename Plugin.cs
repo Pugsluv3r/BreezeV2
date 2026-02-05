@@ -1,6 +1,7 @@
 ﻿using BepInEx;
-using BreezeV2.Classes.Admin;
+
 using BreezeV2.Mods;
+using UnityEngine;
 
 namespace BreezeV2
 {
@@ -17,8 +18,18 @@ namespace BreezeV2
 
         void Start()
         {
-            gameObject.AddComponent<Console>();
+            Debug.Log(@"
+Loaded:
+ ____  ____  ____  ____  ____  ____    _  _  ___ /\
+(  _ \(  _ \( ___)( ___)(_   )( ___)  ( \/ )(__ ))(
+ ) _ < )   / )__)  )__)  / /_  )__)    \  /  (_ \\/
+(____/(_)\_)(____)(____)(____)(____)    \/  (___/()
+Made by Pugs!                               [1.0.0]
+                Powered by II Template
+NOW WITH 0 CONSOLE!
+");
             Otherstuff.Customboards();
+            Otherstuff.Eyerockcusp();
         }
     }
 }

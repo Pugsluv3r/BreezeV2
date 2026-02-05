@@ -10,7 +10,7 @@ using GorillaExtensions;
 using static BreezeV2.Classes.RigManager;
 using static BreezeV2.Menu.Main;
 using static BreezeV2.Classes.SimpleInputs;
-using static HandLink;
+
 using static BreezeV2.Mods.HandlinkhelpersV2;
 
 namespace BreezeV2.Mods

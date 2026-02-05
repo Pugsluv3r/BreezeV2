@@ -11,8 +11,6 @@ namespace BreezeV2.Mods
     internal class Temp
     {
 
-        // Made by IIDK for testing purposes will be removed later
-
 
         public static float startX = -1f;
         public static float startY = -1f;

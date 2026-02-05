@@ -2,8 +2,7 @@
 using BreezeV2.Mods;
 using static BreezeV2.Menu.Main;
 using static BreezeV2.Settings;
-using static BreezeV2.Classes.Admin.Console;
-using BreezeV2.Classes.Admin;
+
 
 
 namespace BreezeV2.Menu
@@ -32,7 +31,7 @@ namespace BreezeV2.Menu
                 new ButtonInfo { buttonText = "Advantage Mods", method = () => currentCategory = 7, isTogglable = false, toolTip = "Opens the advantage mods tab." },
                 new ButtonInfo { buttonText = "Overpowered Mods", method = () => currentCategory = 8, isTogglable = false, toolTip = "Opens the Overpowered mods tab." },
                 new ButtonInfo { buttonText = "Debug", method = () => currentCategory = 9, isTogglable = false, toolTip = "Tempdebug (admin mods are stored here for now)" },
-                new ButtonInfo { buttonText = "visual", method = () => currentCategory = 11, isTogglable = false, toolTip = "Stuff like code gui is stored here" }
+                new ButtonInfo { buttonText = "visual", method = () => currentCategory = 10, isTogglable = false, toolTip = "Stuff like code gui is stored here" }
             },
 
             new ButtonInfo[] { // Settings [1]
@@ -118,20 +117,11 @@ namespace BreezeV2.Menu
             },
             new ButtonInfo[] { // Debug Mods [9]
                 new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
-                new ButtonInfo { buttonText = "wasdFly", method = () => Temp.WASDFly(), toolTip = "WASD fly is made by IIDK/Crimson This is located in Temp.cs becasue it will be removed" },
-
-
+                new ButtonInfo { buttonText = "wasdFly", method = () => Temp.WASDFly(), toolTip = "WASD fly is made by IIDK/Crimson This is located in Temp.cs becasue it will be removed" }, 
             },
-            new ButtonInfo[] { // Admin
+            new ButtonInfo[] { // visual [10]
                 new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
-                new ButtonInfo { buttonText = "Laser", method = () => Admin.laser(), isTogglable = true, toolTip = "sends laser" },
-                new ButtonInfo { buttonText = "Admin Verify", method = () => Admin.Notifyall(), isTogglable = false, toolTip = "Sends notif verifying your an admin" },
-
-
-
-            },
-            new ButtonInfo[] { // visual [11]
-                new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
+                new ButtonInfo { buttonText = "BuildGun", method = () => Otherstuff.Buildgun(), toolTip = "Spawns a gun that can place and remove blocks" },
                 
 
 

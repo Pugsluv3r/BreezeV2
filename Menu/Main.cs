@@ -14,20 +14,7 @@ using UnityEngine.XR;
 using static BreezeV2.Menu.Buttons;
 using static BreezeV2.Settings;
 
-/*
- * Hello, current and future developers!
- * This is ii's Stupid Template, a base mod menu template for Gorilla Tag.
- * 
- * Comments are placed around the code showing you how certain classes work, such as the settings, buttons, and notifications.
- * 
- * If you need help with the template, you may join my Discord server: https://discord.gg/iidk
- * It's full of talented developers that can show you the way and how things work.
- * 
- * If you want to support my, check out my Patreon: https://patreon.com/iiDk
- * Any support is appreciated, and it helps me make more free content for you all!
- * 
- * Thank you, and enjoy the template!
- */
+
 
 namespace BreezeV2.Menu
 {
@@ -333,7 +320,7 @@ namespace BreezeV2.Menu
                         }
             }.AddComponent<Text>();
             text.font = currentFont;
-            text.text = "Ver: Alpha 2ManyCodes"; //VERSIONTEXT;
+            text.text = "Ver:1.0.0"; //VERSIONTEXT;
             text.fontSize = 3;
             text.color = textColors[0];
             text.alignment = TextAnchor.MiddleCenter;
