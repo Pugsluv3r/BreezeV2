@@ -31,7 +31,7 @@ namespace BreezeV2.Menu
                 new ButtonInfo { buttonText = "Advantage Mods", method = () => currentCategory = 7, isTogglable = false, toolTip = "Opens the advantage mods tab." },
                 new ButtonInfo { buttonText = "Overpowered Mods", method = () => currentCategory = 8, isTogglable = false, toolTip = "Opens the Overpowered mods tab." },
                 new ButtonInfo { buttonText = "Debug", method = () => currentCategory = 9, isTogglable = false, toolTip = "Tempdebug (admin mods are stored here for now)" },
-                new ButtonInfo { buttonText = "visual", method = () => currentCategory = 10, isTogglable = false, toolTip = "Stuff like code gui is stored here" }
+                new ButtonInfo { buttonText = "Other", method = () => currentCategory = 10, isTogglable = false, toolTip = "Stuff like code gui is stored here" }
             },
 
             new ButtonInfo[] { // Settings [1]
@@ -119,10 +119,10 @@ namespace BreezeV2.Menu
                 new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
                 new ButtonInfo { buttonText = "wasdFly", method = () => Temp.WASDFly(), toolTip = "WASD fly is made by IIDK/Crimson This is located in Temp.cs becasue it will be removed" }, 
             },
-            new ButtonInfo[] { // visual [10]
+            new ButtonInfo[] { // Other [10]
                 new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
                 new ButtonInfo { buttonText = "BuildGun", method = () => Otherstuff.Buildgun(), toolTip = "Spawns a gun that can place and remove blocks" },
-                
+                new ButtonInfo { buttonText = "gunlibfix", method = () => Otherstuff.GunLibfix(), toolTip = "i fucking hate iitemp", enabled = true}
 
 
             }

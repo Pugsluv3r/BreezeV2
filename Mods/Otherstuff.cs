@@ -1,8 +1,14 @@
 ﻿using BepInEx;
+using BepInEx.Logging;
 using BreezeV2.Menu;
+using BreezeV2.Notifications;
+using Fusion;
 using GorillaLocomotion;
+using GorillaNetworking;
 using NanoSockets;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
+using Photon.Realtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,6 +29,7 @@ namespace BreezeV2.Mods
         //Lastshootshizzzy
         private static float lastShootTime = 0f;
         private static bool canShoot = true;
+        public static bool PLEASEFUCKINGWORK = false;
 
         public static void Customboards()
         {
@@ -51,12 +58,11 @@ namespace BreezeV2.Mods
 
         public static void Buildgun()
         {
-            if (ControllerInputPoller.instance.rightGrab)
+            if (ControllerInputPoller.instance.rightControllerGripFloat > 0.6f)
             {
                 var GunData = RenderGun();
                 GameObject NewPointer = GunData.NewPointer;
-             
-                if (ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f || Input.GetKeyDown(KeyCode.R))
+                if (ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f)
                 {
 
                     if (canShoot && lastShootTime + 0.5f < Time.time)
@@ -67,5 +73,90 @@ namespace BreezeV2.Mods
                 }
             }
         }
+        #region Gunlibfixfrfrfrfrfrf
+        public static void GunLibfix()
+        {
+            GunLibfixStarter.EnsureStarted();
+        }
+
+        private static class GunLibfixStarter
+        {
+            private static GameObject _go;
+            private const float DefaultPollInterval = 0.05f; 
+
+            public static void EnsureStarted()
+            {
+                if (_go != null)
+                    return;
+
+                _go = new GameObject("Breeze_gunLibupdatet");
+                UnityEngine.Object.DontDestroyOnLoad(_go);
+                var comp = _go.AddComponent<GunLibfixBehaviour>();
+                comp.PollInterval = DefaultPollInterval;
+            }
+        }
+        private class GunLibfixBehaviour : MonoBehaviour
+        {
+            public float PollInterval = 0.05f;
+            private bool _prevRightGrab = false;
+            private bool _initialized = false;
+
+            private void Start()
+            {
+                StartCoroutine(Polldatshizx());
+            }
+
+            private IEnumerator Polldatshizx()
+            {
+
+                while (ControllerInputPoller.instance == null)
+                {
+                    yield return null; 
+                }
+
+                _prevRightGrab = ControllerInputPoller.instance.rightGrab;
+                _initialized = true;
+
+                var wait = new WaitForSecondsRealtime(Mathf.Max(0.001f, PollInterval));
+                while (true)
+                {
+                    bool currRightGrab = ControllerInputPoller.instance.rightGrab;
+
+
+                    if (currRightGrab && !_prevRightGrab)
+                    {
+                        try
+                        {
+                            Movement.Yesyesgunfrfrfrfrfrfrfrfrfrfrfrfr();
+                        }
+                        catch (Exception)
+                        {
+                            
+                        }
+                    }
+                    else if (!currRightGrab && _prevRightGrab)
+                    {
+                        try
+                        {
+                            Movement.Nonomoregunfrfrfrfrfrfrfrfrfrfrfr();
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+                    }
+
+                    _prevRightGrab = currRightGrab;
+
+                    yield return wait;
+                }
+            }
+            private void OnDestroy()
+            {
+                StopAllCoroutines();
+            }
+            #endregion
+        }
     }
 }
+

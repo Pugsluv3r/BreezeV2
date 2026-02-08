@@ -24,9 +24,9 @@ Loaded:
 (  _ \(  _ \( ___)( ___)(_   )( ___)  ( \/ )(__ ))(
  ) _ < )   / )__)  )__)  / /_  )__)    \  /  (_ \\/
 (____/(_)\_)(____)(____)(____)(____)    \/  (___/()
-Made by Pugs!                               [1.0.0]
+Made by Pugs!                               [1.0.1]
                 Powered by II Template
-NOW WITH 0 CONSOLE!
+I fucking hate II temp.
 ");
             Otherstuff.Customboards();
             Otherstuff.Eyerockcusp();

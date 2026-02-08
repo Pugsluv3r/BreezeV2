@@ -320,7 +320,7 @@ namespace BreezeV2.Menu
                         }
             }.AddComponent<Text>();
             text.font = currentFont;
-            text.text = "Ver:1.0.0"; //VERSIONTEXT;
+            text.text = "Ver:1.0.1"; //VERSIONTEXT
             text.fontSize = 3;
             text.color = textColors[0];
             text.alignment = TextAnchor.MiddleCenter;
@@ -682,7 +682,7 @@ namespace BreezeV2.Menu
                 GunPointer = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
             GunPointer.SetActive(true);
-            GunPointer.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            GunPointer.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             GunPointer.transform.position = EndPosition;
 
             Renderer PointerRenderer = GunPointer.GetComponent<Renderer>();
@@ -700,9 +700,9 @@ namespace BreezeV2.Menu
             GunLine.gameObject.SetActive(true);
             GunLine.material.shader = Shader.Find("GUI/Text Shader");
             GunLine.startColor = backgroundColor.GetCurrentColor();
-            GunLine.endColor = backgroundColor.GetCurrentColor(0.5f);
+            GunLine.endColor = Color.mediumAquamarine;
             GunLine.startWidth = 0.025f;
-            GunLine.endWidth = 0.025f;
+            GunLine.endWidth = 0.005f;
             GunLine.positionCount = 2;
             GunLine.useWorldSpace = true;
 

@@ -1,12 +1,9 @@
-﻿using GorillaLocomotion;
-using BreezeV2.Classes;
+﻿using BepInEx;
+using BreezeV2.Menu;
+using GorillaLocomotion;
 using UnityEngine;
 using UnityEngine.XR;
 using static BreezeV2.Menu.Main;
-using static BreezeV2.Classes.SimpleInputs;
-using UnityEngine.InputSystem.LowLevel;
-using UnityEngine.InputSystem;
-using BepInEx;
 
 namespace BreezeV2.Mods
 {
@@ -68,34 +65,42 @@ namespace BreezeV2.Mods
         public static bool previousTeleportTrigger;
 
 
-        
+
         private static LineRenderer Gunline;
 
         public static void TeleportGun()
         {
-            if (ControllerInputPoller.instance.rightGrab || UnityInput.Current.GetKeyDown(KeyCode.E))
+            if (ControllerInputPoller.instance.rightGrab)
             {
                 var GunData = RenderGun();
                 GameObject NewPointer = GunData.NewPointer;
-
+                NewPointer.name = "BreezeTeleportPointer";
 
                 if (ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f && !previousTeleportTrigger)
                 {
                     GTPlayer.Instance.TeleportTo(NewPointer.transform.position + Vector3.up, GTPlayer.Instance.transform.rotation);
                     GorillaTagger.Instance.rigidbody.linearVelocity = Vector3.zero;
+                
                 }
-
-                previousTeleportTrigger = ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f;
-            }    
+                    previousTeleportTrigger = ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f;
+            }
         }
+
         public static void SlideControl(float Control)
         {
             GTPlayer.Instance.slideControl = Control;
         }
-        public static void Noslip()
+
+        public static void Nonomoregunfrfrfrfrfrfrfrfrfrfrfr()
         {
-            
+            GameObject.Find("iiMenu_GunLine").SetActive(false);
+            GameObject.Find("BreezeTeleportPointer").SetActive(false);
         }
-        
+        public static void Yesyesgunfrfrfrfrfrfrfrfrfrfrfrfr()
+        {
+            GameObject.Find("iiMenu_GunLine").SetActive(true);
+            GameObject.Find("BreezeTeleportPointer").SetActive(true);
+
+        }
     }
 }
