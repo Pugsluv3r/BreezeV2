@@ -3,7 +3,7 @@
   <h1 align="center">FAQ</h1>
   <div>
     <h3 align="center"> Q: My antivirus says its a trojan Why?
-    <br> A: This is because for things like console to work breeze needs to write files on your computer
+    <br> A: i dont know why this is, but you are more than welcome to look at the menus source code  
     <br>
     <br> Q: Is Breeze A Rat/Virus
     <br> A: No breeze Contains no malicious content. you can check the source code and compile it yourself if you dont beleive me
