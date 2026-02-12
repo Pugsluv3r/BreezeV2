@@ -24,20 +24,29 @@ namespace BreezeV2.Mods
     internal class Otherstuff
     {
         public static GameObject messageofthedih;
+        public static GameObject Motdtext;
+        
         private static List<TextMeshPro> udTMP = new List<TextMeshPro>();
 
         //Lastshootshizzzy
         private static float lastShootTime = 0f;
         private static bool canShoot = true;
         public static bool PLEASEFUCKINGWORK = false;
+        //Build gun shizzy
+        public static UnityTag Destructable; 
 
         public static void Customboards()
         {
-            if (messageofthedih == null)
+            if (messageofthedih == null && Motdtext == null)
             {
                 GameObject motdObject = GameObject.Find("Environment Objects/LocalObjects_Prefab/TreeRoom/motdHeadingText");
                 messageofthedih = UnityEngine.Object.Instantiate(motdObject, motdObject.transform.parent);
                 motdObject.SetActive(false);
+                GameObject MotdBody = GameObject.Find("Environment Objects/LocalObjects_Prefab/TreeRoom/motdBodyText");
+                Motdtext = UnityEngine.Object.Instantiate(MotdBody, MotdBody.transform.parent);
+                MotdBody.GetComponent<PlayFabTitleDataTextDisplay>().Destroy();
+                MotdBody.SetActive(false);
+                
             }
 
             TextMeshPro motdTc = messageofthedih.GetComponent<TextMeshPro>();
@@ -48,13 +57,20 @@ namespace BreezeV2.Mods
             motdTc.fontSize = 70;
             motdTc.text = "Breeze V3!";
 
+
+            TextMeshPro motdBodyTc = Motdtext.GetComponent<TextMeshPro>();
+            if (!udTMP.Contains(motdBodyTc))
+                udTMP.Add(motdBodyTc);
+            GameObject Fuckoffplayfab = GameObject.Find("Environment Objects/LocalObjects_Prefab/TreeRoom/motdBodyText(Clone)");
+            Fuckoffplayfab.GetComponent<PlayFabTitleDataTextDisplay>().Destroy();
+            motdBodyTc.richText = true;
+            motdBodyTc.fontSize = 60;
+            motdBodyTc.text = "Thank you for choosing Breeze V3, version:" + PluginInfo.Version + "this is the most stable breeze has ever been" +
+                "I am so thankful for all of you guys (:"; 
+            motdBodyTc.color = Color.midnightBlue;
+            motdBodyTc.alignment = TextAlignmentOptions.Center;
+
         }
-        public static void Eyerockcusp()
-        {
-            Breeze["Stop using mod checkers they are stupid"] = "";
-            PhotonNetwork.SetPlayerCustomProperties(Breeze);
-        }
-        private static ExitGames.Client.Photon.Hashtable Breeze = PhotonNetwork.LocalPlayer.CustomProperties;
 
         public static void Buildgun()
         {
@@ -68,7 +84,62 @@ namespace BreezeV2.Mods
                     if (canShoot && lastShootTime + 0.5f < Time.time)
                     {
                         lastShootTime = Time.time;
-                        GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = NewPointer.transform.position;
+                        GameObject.CreatePrimitive(PrimitiveType.Sphere).transform.position = NewPointer.transform.position;
+                    }
+
+                }
+            }
+        }
+        public static void DestroyGun()
+        {
+            if (ControllerInputPoller.instance.rightControllerGripFloat > 0.6f)
+            {
+                var GunData = RenderGun();
+                GameObject NewPointer = GunData.NewPointer;
+                if (ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f)
+                {
+                    if (canShoot && lastShootTime + 0.5f < Time.time)
+                    {
+                        lastShootTime = Time.time;
+
+                        if (NewPointer != null)
+                        {
+                            for (int i = 0; i < NewPointer.transform.childCount; i++)
+                            {
+                                var child = NewPointer.transform.GetChild(i).gameObject;
+                                if (child != null && child.activeSelf)
+                                {
+                                    child.SetActive(false);
+                                }
+                            }
+
+                            var renderers = NewPointer.GetComponentsInChildren<Renderer>(true);
+                            foreach (var rend in renderers)
+                            {
+                                if (rend == null)
+                                    continue;
+
+                                if (rend.gameObject == NewPointer )
+                                    continue;
+
+                                if (rend.enabled)
+                                    rend.enabled = false;
+                            }
+
+                            var particleSystems = NewPointer.GetComponentsInChildren<ParticleSystem>(true);
+                            foreach (var ps in particleSystems)
+                            {
+                                if (ps != null)
+                                    ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                            }
+
+                            var colliders = NewPointer.GetComponentsInChildren<Collider>(true);
+                            foreach (var col in colliders)
+                            {
+                                if (col != null && col.enabled)
+                                    col.enabled = false;
+                            }
+                        }
                     }
                 }
             }
@@ -82,7 +153,7 @@ namespace BreezeV2.Mods
         private static class GunLibfixStarter
         {
             private static GameObject _go;
-            private const float DefaultPollInterval = 0.05f; 
+            private const float DefaultPollInterval = 0.05f;
 
             public static void EnsureStarted()
             {
@@ -111,7 +182,7 @@ namespace BreezeV2.Mods
 
                 while (ControllerInputPoller.instance == null)
                 {
-                    yield return null; 
+                    yield return null;
                 }
 
                 _prevRightGrab = ControllerInputPoller.instance.rightGrab;
@@ -131,7 +202,7 @@ namespace BreezeV2.Mods
                         }
                         catch (Exception)
                         {
-                            
+
                         }
                     }
                     else if (!currRightGrab && _prevRightGrab)

@@ -24,12 +24,11 @@ Loaded:
 (  _ \(  _ \( ___)( ___)(_   )( ___)  ( \/ )(__ ))(
  ) _ < )   / )__)  )__)  / /_  )__)    \  /  (_ \\/
 (____/(_)\_)(____)(____)(____)(____)    \/  (___/()
-Made by Pugs!                               [1.0.1]
+Made by Pugs!                               [1.0.2]
                 Powered by II Template
-I fucking hate II temp.
+Now with a custom MOTD!
 ");
             Otherstuff.Customboards();
-            Otherstuff.Eyerockcusp();
         }
     }
 }

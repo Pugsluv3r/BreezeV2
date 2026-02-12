@@ -320,7 +320,7 @@ namespace BreezeV2.Menu
                         }
             }.AddComponent<Text>();
             text.font = currentFont;
-            text.text = "Ver:1.0.1"; //VERSIONTEXT
+            text.text = "Ver:1.0.2"; //VERSIONTEXT
             text.fontSize = 3;
             text.color = textColors[0];
             text.alignment = TextAnchor.MiddleCenter;
