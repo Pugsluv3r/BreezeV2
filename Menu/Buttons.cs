@@ -98,7 +98,7 @@ namespace BreezeV2.Menu
                 new ButtonInfo { buttonText = "Return to Stump [B]", method = () => Safety.ReturnToStump(), toolTip = "Teleports you back to stump when pressing B." },
                 new ButtonInfo { buttonText = "Disconnect [LT]", method = () => Safety.LTdisconnect(), isTogglable = true, toolTip = "Press Left trigger 2 disconnect" },
                 new ButtonInfo { buttonText = "Anti Handlink", method = () => Safety.Antihandlink(), toolTip = "Prevents handlinking by Rejecting handlink requests." },
-                new ButtonInfo { buttonText = "Dominant Monke", method = () => Safety.Dominantmonke(), toolTip = "When handlinked you are always dominant >:3 (cant be flinged)." },
+                new ButtonInfo { buttonText = "Report counter", method = () => Safety.AntiReport(), toolTip = "It counts how many times you have been reported (Experimental)", disableMethod = () => Safety.reportcount =0},
             },
 
             new ButtonInfo[] { // Advantage Mods [7]

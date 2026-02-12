@@ -1,69 +1,64 @@
-﻿using GorillaLocomotion;
- 
-using BreezeV2.Classes;
-using BreezeV2.Notifications;
-using System.Linq;
+﻿using BreezeV2.Notifications;
+using GorillaLocomotion;
+using System;
 using UnityEngine;
-using UnityEngine.XR;
-using GorillaNetworking;
-using GorillaExtensions;
-using static BreezeV2.Classes.RigManager;
-using static BreezeV2.Menu.Main;
 using static BreezeV2.Classes.SimpleInputs;
-
 using static BreezeV2.Mods.HandlinkhelpersV2;
 
 namespace BreezeV2.Mods
 {
     public class Safety
     {
-        public static VRRig reportRig;
-        public static void AntiReport(System.Action<VRRig, Vector3> onReport)
+        public static float Lastreporttime = 0f;
+        public static float threshold = 0.005f;
+        public static int reportcount = 0;
+        public static float Thing1 { get; private set; }
+        public static float Thing2 { get; private set; }
+        public static void AntiReport()
         {
-            if (!NetworkSystem.Instance.InRoom) return;
-
-            if (reportRig != null)
+            try
             {
-                onReport?.Invoke(reportRig, reportRig.transform.position);
-                reportRig = null;
-                return;
+                foreach (GorillaPlayerScoreboardLine line in GorillaScoreboardTotalUpdater.allScoreboardLines)
+                {
+                    if (line.linePlayer == NetworkSystem.Instance.LocalPlayer)
+                    {
+                        Transform report = line.reportButton.gameObject.transform;
+
+                        foreach (VRRig vrrig in GorillaParent.instance.vrrigs)
+                        {
+                            if (vrrig != VRRig.LocalRig)
+                            {
+                                Thing1 = Vector3.Distance(vrrig.rightHandTransform.position, report.position);
+                                Thing2 = Vector3.Distance(vrrig.leftHandTransform.position, report.position);
+                            }
+                            if (Thing1 < threshold || Thing2 < threshold && Lastreporttime + 1f < Time.time)
+                            {
+                                reportcount ++;
+                                NotifiLib.SendNotification("<color=grey>[</color><color=purple>You've been reported</color><color=grey>]:</color>" + reportcount + "times (Note this may be inacurate)" );
+                            }
+                        }
+                    }
+                }
             }
-
-            foreach (GorillaPlayerScoreboardLine line in GorillaScoreboardTotalUpdater.allScoreboardLines)
+            catch (Exception ex)
             {
-                if (line.linePlayer != NetworkSystem.Instance.LocalPlayer) continue;
-                Transform report = line.reportButton.gameObject.transform;
-
-                foreach (var vrrig in from vrrig in GorillaParent.instance.vrrigs where !vrrig.isLocal let D1 = Vector3.Distance(vrrig.rightHandTransform.position, report.position) let D2 = Vector3.Distance(vrrig.leftHandTransform.position, report.position) where D1 < 0.35f || D2 < 0.35f select vrrig)
-                    onReport?.Invoke(vrrig, report.transform.position);
+                Debug.LogError($"An error occurred in AntiReport: {ex.Message}"); //eyerock reborn code btw :sob:
             }
         }
-
-        public static float antiReportDelay;
-        public static void AntiReportDisconnect()
-        {
-            AntiReport((vrrig, position) =>
-            {
-
-                if (!(Time.time > antiReportDelay)) return;
-                antiReportDelay = Time.time + 1f;
-                NotifiLib.SendNotification("<color=grey>[</color><color=purple>ANTI-REPORT</color><color=grey>]</color> " + GetPlayerFromVRRig(vrrig).NickName + " Has reported you.");
-            });
-        }
-        public static void ReturnToStump() //hey if your reading this i hope you know. i try my best to make mods that arent bad. i really do.
+        public static void ReturnToStump()
         {
             if (RightB)
             {
                 UnityEngine.Vector3 targetPosition = new UnityEngine.Vector3(-66.9039f, 11.8661f, -82.1227f);
                 UnityEngine.Quaternion targetRotation = UnityEngine.Quaternion.identity;
                 GTPlayer.Instance.TeleportTo(targetPosition, targetRotation);
-                
+
             }
-            
+
         }
         public static void Antihandlink()
         {
-            if (RightTrigger || RightGrab || LeftTrigger || LeftGrab)   
+            if (RightTrigger || RightGrab || LeftTrigger || LeftGrab)
             {
 
                 VRRig.LocalRig.leftHandLink.RejectGrabsFor(10f);
