@@ -24,9 +24,10 @@ Loaded:
 (  _ \(  _ \( ___)( ___)(_   )( ___)  ( \/ )(__ ))(
  ) _ < )   / )__)  )__)  / /_  )__)    \  /  (_ \\/
 (____/(_)\_)(____)(____)(____)(____)    \/  (___/()
-Made by Pugs!                               [1.0.2]
+Made by Pugs!                               [1.0.3]
                 Powered by II Template
-Now with a custom MOTD!
+She gon call me bae call me bae call me boo
+she gon call me bae she gon call me boo?
 ");
             Otherstuff.Customboards();
         }
