@@ -25,6 +25,7 @@ namespace BreezeV2.Mods
     {
         public static GameObject messageofthedih;
         public static GameObject Motdtext;
+        public static GameObject CocHeader;
         
         private static List<TextMeshPro> udTMP = new List<TextMeshPro>();
 
@@ -33,11 +34,9 @@ namespace BreezeV2.Mods
         private static bool canShoot = true;
         public static bool PLEASEFUCKINGWORK = false;
         //Build gun shizzy
-        public static UnityTag Destructable; 
-
         public static void Customboards()
         {
-            if (messageofthedih == null && Motdtext == null)
+            if (messageofthedih == null && Motdtext == null && CocHeader == null)
             {
                 GameObject motdObject = GameObject.Find("Environment Objects/LocalObjects_Prefab/TreeRoom/motdHeadingText");
                 messageofthedih = UnityEngine.Object.Instantiate(motdObject, motdObject.transform.parent);
@@ -46,7 +45,10 @@ namespace BreezeV2.Mods
                 Motdtext = UnityEngine.Object.Instantiate(MotdBody, MotdBody.transform.parent);
                 MotdBody.GetComponent<PlayFabTitleDataTextDisplay>().Destroy();
                 MotdBody.SetActive(false);
-                
+                GameObject CoCheadingfr = GameObject.Find("Environment Objects/LocalObjects_Prefab/TreeRoom/CodeOfConductHeadingText");
+                CocHeader = GameObject.Instantiate(CoCheadingfr, CoCheadingfr.transform.parent);
+                CoCheadingfr.SetActive(false);
+
             }
 
             TextMeshPro motdTc = messageofthedih.GetComponent<TextMeshPro>();
@@ -64,14 +66,21 @@ namespace BreezeV2.Mods
             GameObject Fuckoffplayfab = GameObject.Find("Environment Objects/LocalObjects_Prefab/TreeRoom/motdBodyText(Clone)");
             Fuckoffplayfab.GetComponent<PlayFabTitleDataTextDisplay>().Destroy();
             motdBodyTc.richText = true;
-            motdBodyTc.fontSize = 60;
-            motdBodyTc.text = "Thank you for choosing Breeze V3, version:" + PluginInfo.Version + "this is the most stable breeze has ever been" +
-                "I am so thankful for all of you guys (:"; 
-            motdBodyTc.color = Color.midnightBlue;
+            motdBodyTc.fontSize = 90;
+            motdBodyTc.text = "Thank you for choosing Breeze V3, version: " + PluginInfo.Version + " this is the most stable breeze has ever been" +
+                " I hope you enjoy the menu."; 
+            motdBodyTc.color = Color.pink;
             motdBodyTc.alignment = TextAlignmentOptions.Center;
 
-        }
+            TextMeshPro cocHeaderTc = CocHeader.GetComponent<TextMeshPro>();
+            if (!udTMP.Contains(cocHeaderTc))
+                udTMP.Add(cocHeaderTc);
+            cocHeaderTc.richText = true;
+            cocHeaderTc.fontSize = 70;
+            cocHeaderTc.text = "Breeze V3 " + PluginInfo.Version;
 
+        }
+        
         public static void Buildgun()
         {
             if (ControllerInputPoller.instance.rightControllerGripFloat > 0.6f)

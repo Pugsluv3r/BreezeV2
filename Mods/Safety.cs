@@ -12,6 +12,7 @@ namespace BreezeV2.Mods
         public static float Lastreporttime = 0f;
         public static float threshold = 0.005f;
         public static int reportcount = 0;
+        public static bool Leaveafter7reports = true;
         public static float Thing1 { get; private set; }
         public static float Thing2 { get; private set; }
         public static void AntiReport()
@@ -35,6 +36,12 @@ namespace BreezeV2.Mods
                             {
                                 reportcount ++;
                                 NotifiLib.SendNotification("<color=grey>[</color><color=purple>You've been reported</color><color=grey>]:</color>" + reportcount + "times (Note this may be inacurate)" );
+                            }
+                            if (Leaveafter7reports = true && reportcount > 6)
+                            {
+                                NetworkSystem.Instance.ReturnToSinglePlayer();
+                                NotifiLib.SendNotification("color=red>[Notif]: You have been reported more than 7 times</color> to disable this feature go into menu settings");
+                                reportcount = 0;
                             }
                         }
                     }
