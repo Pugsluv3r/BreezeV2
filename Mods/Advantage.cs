@@ -1,5 +1,6 @@
 ﻿using BreezeV2.Notifications;
 using BreezeV2.Patches.Internal;
+using Fusion.LagCompensation;
 using GorillaExtensions;
 using GorillaLocomotion;
 using GorillaTag.DebugTools;
@@ -38,10 +39,15 @@ namespace BreezeV2.Mods
                                 if (Time.time > Notifdelay)
                                     if (((GorillaTagManager)GorillaGameManager.instance).currentInfected.Contains(vRRig.Creator))
                                     {
-                                        Notifdelay = Time.time + 0.6f;
+                                        Notifdelay = Time.time + 2f;
                                         NotifiLib.SendNotification("<color=purple>[WARNING]</color> Lava near you");
                                     }
+
                         }
+                    if (VRRig.LocalRig.isLocal &&((GorillaTagManager)GorillaGameManager.instance).isCurrentlyTag == false)
+                    {
+                        return;
+                    }
                 }
                 catch { } // no reason
 
@@ -49,23 +55,6 @@ namespace BreezeV2.Mods
         public static void RemoveFlicklimit()
         {
             GorillaTagger.Instance.maxTagDistance = 2.5f; // this may be detected by anti-cheat mb /:
-        }
-        public static void Beacons()
-        {
-            if (PhotonNetwork.InRoom)
-            {
-                foreach (VRRig vRRig in GorillaParent.instance.vrrigs)
-                {
-                    if (vRRig.isLocal)
-                    {
-
-                    }
-                }
-
-
-            }
-
-
         }
     }
 };
