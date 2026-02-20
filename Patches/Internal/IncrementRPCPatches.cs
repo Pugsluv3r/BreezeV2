@@ -12,14 +12,14 @@ namespace BreezeV2.Patches.Internal
                 false;
         }
 
-        [HarmonyPatch(typeof(GorillaNot), "IncrementRPCCall", typeof(PhotonMessageInfo), typeof(string))]
+        [HarmonyPatch(typeof(MonkeAgent), "IncrementRPCCall", typeof(PhotonMessageInfo), typeof(string))]
         public class NoIncrementRPCCall
         {
             private static bool Prefix(PhotonMessageInfo info, string callingMethod = "") =>
                 false;
         }
 
-        [HarmonyPatch(typeof(GorillaNot), "IncrementRPCCallLocal")]
+        [HarmonyPatch(typeof(MonkeAgent), "IncrementRPCCallLocal")]
         public class NoIncrementRPCCallLocal
         {
             private static bool Prefix(PhotonMessageInfoWrapped infoWrapped, string rpcFunction) =>

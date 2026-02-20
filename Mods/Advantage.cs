@@ -47,6 +47,7 @@ namespace BreezeV2.Mods
                     if (VRRig.LocalRig.isLocal &&((GorillaTagManager)GorillaGameManager.instance).isCurrentlyTag == false)
                     {
                         return;
+                        
                     }
                 }
                 catch { } // no reason

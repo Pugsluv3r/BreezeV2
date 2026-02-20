@@ -143,7 +143,7 @@ namespace BreezeV2.Notifications
 
         private Material AlertText = new Material(Shader.Find("GUI/Text Shader"));
 
-        private int NotificationDecayTime = 144;
+        private int NotificationDecayTime = 244;
 
         private int NotificationDecayTimeCounter;
 

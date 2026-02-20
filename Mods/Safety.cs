@@ -1,5 +1,6 @@
 ﻿using BreezeV2.Notifications;
 using GorillaLocomotion;
+using Photon.Pun;
 using System;
 using UnityEngine;
 using static BreezeV2.Classes.SimpleInputs;
@@ -10,46 +11,73 @@ namespace BreezeV2.Mods
     public class Safety
     {
         public static float Lastreporttime = 0f;
-        public static float threshold = 0.005f;
+        public static float threshold = 0.115f;
         public static int reportcount = 0;
+        public static float Notifdelay;
         public static bool Leaveafter7reports = true;
         public static float Thing1 { get; private set; }
         public static float Thing2 { get; private set; }
+        public static bool diddyhereportingyoublud = false;
+        private static bool wasBeingReported = false;
+
         public static void AntiReport()
         {
+            if (!PhotonNetwork.InRoom)
+            {
+                wasBeingReported = false;
+                return;
+            }
+
             try
             {
                 foreach (GorillaPlayerScoreboardLine line in GorillaScoreboardTotalUpdater.allScoreboardLines)
                 {
-                    if (line.linePlayer == NetworkSystem.Instance.LocalPlayer)
-                    {
-                        Transform report = line.reportButton.gameObject.transform;
+                    if (line.linePlayer != NetworkSystem.Instance.LocalPlayer) continue;
 
-                        foreach (VRRig vrrig in GorillaParent.instance.vrrigs)
+                    Transform report = line.reportButton.gameObject.transform;
+                    float nearestRight = float.MaxValue;
+                    float nearestLeft = float.MaxValue;
+                    bool currentlyReported = false;
+
+                    foreach (VRRig vrrig in GorillaParent.instance.vrrigs)
+                    {
+                        if (vrrig == VRRig.LocalRig) continue;
+
+                        float dRight = Vector3.Distance(vrrig.rightHandTransform.position, report.position);
+                        float dLeft = Vector3.Distance(vrrig.leftHandTransform.position, report.position);
+
+                        if (dRight < nearestRight) nearestRight = dRight;
+                        if (dLeft < nearestLeft) nearestLeft = dLeft;
+
+                        if (dRight < threshold || dLeft < threshold)
                         {
-                            if (vrrig != VRRig.LocalRig)
-                            {
-                                Thing1 = Vector3.Distance(vrrig.rightHandTransform.position, report.position);
-                                Thing2 = Vector3.Distance(vrrig.leftHandTransform.position, report.position);
-                            }
-                            if (Thing1 < threshold || Thing2 < threshold && Lastreporttime + 1f < Time.time)
-                            {
-                                reportcount ++;
-                                NotifiLib.SendNotification("<color=grey>[</color><color=purple>You've been reported</color><color=grey>]:</color>" + reportcount + "times (Note this may be inacurate)" );
-                            }
-                            if (Leaveafter7reports = true && reportcount > 6)
-                            {
-                                NetworkSystem.Instance.ReturnToSinglePlayer();
-                                NotifiLib.SendNotification("color=red>[Notif]: You have been reported more than 7 times</color> to disable this feature go into menu settings");
-                                reportcount = 0;
-                            }
+                            currentlyReported = true;
+                            break;
                         }
+                    }
+                    Thing1 = nearestRight;
+                    Thing2 = nearestLeft;
+                    diddyhereportingyoublud = currentlyReported;
+
+                    if (currentlyReported && !wasBeingReported)
+                    {
+                        wasBeingReported = true;
+                        if (Time.time > Notifdelay)
+                        {
+                            Notifdelay = Time.time + 4f;
+                            reportcount++;
+                            NotifiLib.SendNotification("<color=Red>[AR]:</color> You've been reported " + reportcount + " times (Note this may be inaccurate)");
+                        }
+                    }
+                    else if (!currentlyReported)
+                    {
+                        wasBeingReported = false;
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Debug.LogError($"An error occurred in AntiReport: {ex.Message}"); //eyerock reborn code btw :sob:
+
             }
         }
         public static void ReturnToStump()
@@ -87,5 +115,6 @@ namespace BreezeV2.Mods
                 NetworkSystem.Instance.ReturnToSinglePlayer();
             }
         }
+
     }
 }
