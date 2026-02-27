@@ -124,7 +124,6 @@ namespace BreezeV2.Menu
             new ButtonInfo[] { // Other [10]
                 new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
                 new ButtonInfo { buttonText = "BuildGun", method = () => Otherstuff.Buildgun(), toolTip = "Spawns a gun that can place cubes" },
-                new ButtonInfo { buttonText = "Destroy Gun", method = () => Otherstuff.DestroyGun(), toolTip = "Spawns a gun that can destroy ANYTHING"},
                 new ButtonInfo { buttonText = "gunlibfix", method = () => Otherstuff.GunLibfix(), toolTip = "i fucking hate iitemp", enabled = true}
             },
             new ButtonInfo[] { //visual Mods [11]

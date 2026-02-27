@@ -13,7 +13,7 @@ namespace BreezeV2.Patches
         {
             if (newPlayer != oldnewplayer)
             {
-                NotifiLib.SendNotification("<color=grey>[</color><color=green>L</color><color=grey>] </color><color=white>New Join: " + newPlayer.NickName + "</color>");
+                NotifiLib.SendNotification("<color=grey>[</color><color=green>New:</color><color=grey>] </color><color=white> " + newPlayer.NickName + "</color>");
                 oldnewplayer = newPlayer;
             }
         }
