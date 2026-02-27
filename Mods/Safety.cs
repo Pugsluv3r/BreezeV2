@@ -4,7 +4,7 @@ using Photon.Pun;
 using System;
 using UnityEngine;
 using static BreezeV2.Classes.SimpleInputs;
-using static BreezeV2.Mods.HandlinkhelpersV2;
+
 
 namespace BreezeV2.Mods
 {
@@ -101,13 +101,11 @@ namespace BreezeV2.Mods
             }
         }
         public static void Dominantmonke()
-        {
-            if (Isrighthandlinked || Islefthandlinked)
+
             {
                 VRRig.LocalRig.rightHandLink.isGroundedHand = true;
                 VRRig.LocalRig.leftHandLink.isGroundedHand = true;
             }
-        }
         public static void LTdisconnect()
         {
             if (LeftTrigger)
