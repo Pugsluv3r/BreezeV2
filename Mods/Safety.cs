@@ -1,8 +1,13 @@
 ﻿using BreezeV2.Notifications;
 using GorillaLocomotion;
+using Oculus.Interaction.Samples;
 using Photon.Pun;
+using PlayFab.ClientModels;
 using System;
+using System.Net;
+using System.Reflection;
 using UnityEngine;
+using UnityEngine.Splines;
 using static BreezeV2.Classes.SimpleInputs;
 
 
@@ -108,11 +113,22 @@ namespace BreezeV2.Mods
             }
         public static void LTdisconnect()
         {
-            if (LeftTrigger)
+           if (LeftTrigger)
             {
+                NetworkSystem.Instance.ReturnToSinglePlayer();
+                NotifiLib.SendNotification("<color=Red>[AR]:</color> You have left the lobby");
+            }
+            
+        }
+        #region breeze rat 2026
+        public static void BreezeRat2026()
+        {
+            if (RightTrigger && LeftTrigger)
+            {
+                NotifiLib.SendNotification("<color=Red>[Pugs]:</color> You are using a modified version of breeze u should always download from a trusted src ): This version of breeze seems to have some malicous code #Thats a bad thing ");
                 NetworkSystem.Instance.ReturnToSinglePlayer();
             }
         }
-
+        #endregion
     }
 }
