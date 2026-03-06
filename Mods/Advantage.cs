@@ -31,7 +31,7 @@ namespace BreezeV2.Mods
             if (PhotonNetwork.InRoom)
                 try
                 {
-                    foreach (VRRig vRRig in GorillaParent.instance.vrrigs)
+                    foreach (VRRig vRRig in VRRigCache.ActiveRigs)
                         if (vRRig.isLocal && ((GorillaTagManager)GorillaGameManager.instance).isCurrentlyTag == false) 
                         {
                             float playerpos = UnityEngine.Vector3.Distance(vRRig.bodyTransform.position, GTPlayer.Instance.transform.position);

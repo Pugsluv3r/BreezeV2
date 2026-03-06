@@ -16,10 +16,9 @@ namespace BreezeV2.Mods
     public class Safety
     {
         public static float Lastreporttime = 0f;
-        public static float threshold = 0.115f;
+        public static float threshold = 9f;
         public static int reportcount = 0;
         public static float Notifdelay;
-        public static bool Leaveafter7reports = true;
         public static float Thing1 { get; private set; }
         public static float Thing2 { get; private set; }
         public static bool diddyhereportingyoublud = false;
@@ -44,7 +43,7 @@ namespace BreezeV2.Mods
                     float nearestLeft = float.MaxValue;
                     bool currentlyReported = false;
 
-                    foreach (VRRig vrrig in GorillaParent.instance.vrrigs)
+                    foreach (VRRig vrrig in VRRigCache.ActiveRigs)
                     {
                         if (vrrig == VRRig.LocalRig) continue;
 
