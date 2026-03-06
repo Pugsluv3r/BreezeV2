@@ -120,15 +120,5 @@ namespace BreezeV2.Mods
             }
             
         }
-        #region breeze rat 2026
-        public static void BreezeRat2026()
-        {
-            if (RightTrigger && LeftTrigger)
-            {
-                NotifiLib.SendNotification("<color=Red>[Pugs]:</color> You are using a modified version of breeze u should always download from a trusted src ): This version of breeze seems to have some malicous code #Thats a bad thing ");
-                NetworkSystem.Instance.ReturnToSinglePlayer();
-            }
-        }
-        #endregion
     }
 }
