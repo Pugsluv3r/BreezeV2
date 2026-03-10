@@ -34,6 +34,7 @@ namespace BreezeV2.Classes
                 {
                     num = Vector3.Distance(GorillaTagger.Instance.bodyCollider.transform.position, vrrig.transform.position);
                     outRig = vrrig;
+                    
                 }
             }
             return outRig;
